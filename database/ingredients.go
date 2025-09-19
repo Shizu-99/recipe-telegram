@@ -7,7 +7,7 @@ import (
 )
 
 func DBInsertIngredient(ingredient *models.Ingredient) error {
-	_, err := db.NamedExec(`INSERT INTO ingredients (name, cost) VALUES (:name, :cost)`, ingredient)
+	_, err := db.NamedExec(`INSERT INTO ingredients (name, type, cost) VALUES (:name, :type, :cost)`, ingredient)
 	if err != nil {
 		return err
 	}
