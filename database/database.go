@@ -13,7 +13,7 @@ PRAGMA busy_timeout = 5000;
 
 CREATE TABLE IF NOT EXISTS ingredients (
 	ingredient_id INTEGER PRIMARY KEY,
-	name TEXT NOT NULL,
+	name TEXT NOT NULL COLLATE NOCASE UNIQUE,
 	cost REAL NOT NULL
 );
 `
