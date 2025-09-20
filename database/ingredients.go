@@ -16,7 +16,7 @@ func DBInsertIngredient(ingredient *models.Ingredient) error {
 
 func DBGetIngredientByName(name string) (*models.Ingredient, error) {
 	ingredient := &models.Ingredient{}
-	err := db.Get(ingredient, `SELECT * FROM ingredients WHERE name=$1`, name)
+	err := db.Get(ingredient, `SELECT name, type, cost FROM ingredients WHERE name=$1`, name)
 	if err != nil {
 		return nil, err
 	}
@@ -25,7 +25,7 @@ func DBGetIngredientByName(name string) (*models.Ingredient, error) {
 
 func DBGetAllIngredients() ([]models.Ingredient, error) {
 	ingredients := []models.Ingredient{}
-	err := db.Select(&ingredients, `SELECT * FROM ingredients`)
+	err := db.Select(&ingredients, `SELECT name, type, cost FROM ingredients`)
 	if err != nil {
 		return nil, err
 	}
