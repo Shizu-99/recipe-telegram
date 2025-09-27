@@ -11,11 +11,13 @@ const SCHEMA = `
 PRAGMA journal_mode = WAL;
 PRAGMA busy_timeout = 5000;
 
-CREATE TABLE IF NOT EXISTS ingredients (
-	ingredient_id INTEGER PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS recipes (
+	recipe_id INTEGER PRIMARY KEY,
 	name TEXT NOT NULL COLLATE NOCASE UNIQUE,
-	type TEXT NOT NULL,
-	cost REAL NOT NULL
+	ingredients TEXT NOT NULL,
+	method TEXT NOT NULL,
+	source TEXT,
+	recipe_image BLOB
 );
 `
 
